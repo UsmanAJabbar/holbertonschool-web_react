@@ -30,3 +30,4 @@ const executeWork = (employee: Teacher | Director): string => {
   if (isDirector(employee)) return employee.workDirectorTasks();
   return employee.workTeacherTasks()
 }
+const teachClass = (todayClass: 'Math' | 'History') => `Teaching ${todayClass}`;
