@@ -10,14 +10,14 @@ interface TeacherInterface {
 }
 
 class Director implements DirectorInterface {
-  workFromHome() { return 'Working from home' }
-  getToWork() { return 'Getting a coffee break' }
-  workDirectorTasks() { return 'Getting to director tasks' }
+  workFromHome():string { return 'Working from home' }
+  getToWork():string { return 'Getting a coffee break' }
+  workDirectorTasks():string { return 'Getting to director tasks' }
 }
 class Teacher implements TeacherInterface {
-  workFromHome() { return 'Cannot work from home' }
-  getCoffeeBreak() { return 'Cannot have a break' }
-  workTeacherTasks() { return 'Getting to work' }
+  workFromHome():string { return 'Cannot work from home' }
+  getCoffeeBreak():string { return 'Cannot have a break' }
+  workTeacherTasks():string { return 'Getting to work' }
 }
 
 const createEmployee = (salary: number | string): Teacher | Director => {

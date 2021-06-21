@@ -26,7 +26,7 @@ const table: HTMLElement = document.createElement('table');
 // Generate table header || Add tr > th * len(firstStudentKeys)
 const header: HTMLElement = document.createElement('tr');
 for (const field of Object.keys(firstStudent)) {
-  let column = document.createElement('th');
+  let column: HTMLTableHeaderCellElement = document.createElement('th');
   column.innerHTML = field;
   header.appendChild(column);
 }
@@ -35,7 +35,7 @@ table.appendChild(header);
 for (const student of students) {
   let studentRow: HTMLElement = document.createElement('tr');
   for (const value of Object.values(student)) {
-    let tableData = document.createElement('td');
+    let tableData: HTMLTableDataCellElement = document.createElement('td');
     tableData.innerHTML = value;
     studentRow.appendChild(tableData);
   }
