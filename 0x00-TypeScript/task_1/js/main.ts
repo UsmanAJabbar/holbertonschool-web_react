@@ -13,7 +13,7 @@ interface Directors extends Teacher {
 
 /* Interface defines a singature param so functions that associated with the interface would be accepted */
 interface printTeacherFunction { (firstName: string, lastName: string): string }
-const printTeacher: printTeacherFunction = (firstName: string, lastName: string) => `${firstName[0]}. ${lastName}`;
+export const printTeacher: printTeacherFunction = (firstName: string, lastName: string) => `${firstName[0]}. ${lastName}`;
 
 interface studentClassInterface {
   firstName: string;
