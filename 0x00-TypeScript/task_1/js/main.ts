@@ -22,7 +22,7 @@ interface StudentClassInterface {
 interface StudentConstructor {
   new(firstName: string, lastName: string): StudentClass,
 }
-class StudentClass implements StudentClassInterface {
+export class StudentClass implements StudentClassInterface {
   firstName: string;
   lastName: string;
 
