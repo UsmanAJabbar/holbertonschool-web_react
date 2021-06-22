@@ -1,6 +1,6 @@
 interface DirectorInterface {
   workFromHome(): string,
-  getToWork(): string,
+  getCoffeeBreak(): string,
   workDirectorTasks(): string,
 }
 interface TeacherInterface {
@@ -11,7 +11,7 @@ interface TeacherInterface {
 
 export class Director implements DirectorInterface {
   workFromHome():string { return 'Working from home' }
-  getToWork():string { return 'Getting a coffee break' }
+  getCoffeeBreak():string { return 'Getting a coffee break' }
   workDirectorTasks():string { return 'Getting to director tasks' }
 }
 export class Teacher implements TeacherInterface {
