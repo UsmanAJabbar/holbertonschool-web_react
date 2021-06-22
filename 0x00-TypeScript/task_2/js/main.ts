@@ -31,3 +31,7 @@ const executeWork = (employee: Teacher | Director): string => {
   return employee.workTeacherTasks()
 }
 const teachClass = (todayClass: 'Math' | 'History') => `Teaching ${todayClass}`;
+
+
+// executeWork(employee: DirectorInterface | TeacherInterface)
+// function isDirector
