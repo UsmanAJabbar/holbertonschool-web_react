@@ -30,8 +30,8 @@ const executeWork = (employee: DirectorInterface | TeacherInterface): string => 
   if (isDirector(employee)) return employee.workDirectorTasks();
   return employee.workTeacherTasks()
 }
-const teachClass = (todayClass: 'Math' | 'History') => `Teaching ${todayClass}`;
-
+type Subjects = 'Math' | 'History';
+const teachClass = (todayClass:Subjects):string => `Teaching ${todayClass}`;
 
 // executeWork(employee: DirectorInterface | TeacherInterface)
 // function isDirector
