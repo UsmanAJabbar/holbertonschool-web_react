@@ -20,9 +20,9 @@ interface StudentClassInterface {
   lastName: string;
 }
 interface StudentConstructor {
-  new(firstName: string, lastName: string): StudentClass,
+  new(firstName: string, lastName: string): StudentClassInterface,
 }
-export class StudentClass implements StudentClassInterface {
+export const StudentClass: StudentConstructor = class StudentClass implements StudentClassInterface {
   firstName: string;
   lastName: string;
 
