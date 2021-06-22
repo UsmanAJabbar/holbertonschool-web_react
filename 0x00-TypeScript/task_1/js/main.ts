@@ -20,7 +20,7 @@ interface studentClassInterface {
   lastName: string;
 }
 interface studentClassConstructor {
-  new (firstName: string, lastName: string): StudentClass,
+  new(firstName: string, lastName: string): StudentClass,
 }
 class StudentClass implements studentClassInterface {
   firstName: string;
