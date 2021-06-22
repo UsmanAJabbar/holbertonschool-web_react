@@ -26,7 +26,7 @@ export const createEmployee = (salary: number | string): Teacher | Director => {
   else return new Director();
 }
 const isDirector = (employee: Teacher | Director): employee is Director => employee instanceof Director;
-const executeWork = (employee: Teacher | Director): string => {
+const executeWork = (employee: DirectorInterface | TeacherInterface): string => {
   if (isDirector(employee)) return employee.workDirectorTasks();
   return employee.workTeacherTasks()
 }
