@@ -15,14 +15,14 @@ interface Directors extends Teacher {
 interface printTeacherFunction { (firstName: string, lastName: string): string }
 export const printTeacher: printTeacherFunction = (firstName: string, lastName: string) => `${firstName[0]}. ${lastName}`;
 
-interface studentClassInterface {
+interface StudentClassInterface {
   firstName: string;
   lastName: string;
 }
-interface studentClassConstructor {
+interface StudentClassConstructor {
   new(firstName: string, lastName: string): StudentClass,
 }
-class StudentClass implements studentClassInterface {
+class StudentClass implements StudentClassInterface {
   firstName: string;
   lastName: string;
 
