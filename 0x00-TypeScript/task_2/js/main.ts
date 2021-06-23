@@ -20,7 +20,7 @@ export class Teacher implements TeacherInterface {
   workTeacherTasks():string   { return 'Getting to work'            ;}
 }
 
-function createEmployee(salary: number | string): Teacher | Director {
+export function createEmployee(salary: number | string): Teacher | Director {
   if ((typeof salary == 'string' && ( parseInt(salary) < 500 || parseInt(salary.slice(1)) < 500)) ||
        typeof salary == 'number' && salary < 500) return new Teacher();
   else return new Director();
