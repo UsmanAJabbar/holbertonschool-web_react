@@ -20,18 +20,20 @@ export class Teacher implements TeacherInterface {
   workTeacherTasks():string { return 'Getting to work' }
 }
 
-export const createEmployee = (salary: number | string): Teacher | Director => {
+function createEmployee(salary: number | string): Teacher | Director {
   if ((typeof salary == 'string' && ( parseInt(salary) < 500 || parseInt(salary.slice(1)) < 500)) ||
        typeof salary == 'number' && salary < 500) return new Teacher();
   else return new Director();
 }
-const isDirector = (employee: Director | Teacher): employee is Director => !!(employee as Director).workDirectorTasks;
-const executeWork = (employee: DirectorInterface | TeacherInterface): string => {
+export function isDirector(employee: Director | Teacher): employee is Director {
+  return !!(employee as Director).workDirectorTasks;
+}
+export function executeWork(employee: DirectorInterface | TeacherInterface): string {
   if (isDirector(employee)) return employee.workDirectorTasks();
-  return employee.workTeacherTasks()
+  return employee.workTeacherTasks();
 }
 type Subjects = 'Math' | 'History';
-const teachClass = (todayClass:Subjects):string => `Teaching ${todayClass}`;
+function teachClass(todayClass:Subjects):string { return `Teaching ${todayClass}` };
 
 // executeWork(employee: DirectorInterface | TeacherInterface)
 // function isDirector
