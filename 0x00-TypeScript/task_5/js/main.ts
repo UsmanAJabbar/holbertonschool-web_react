@@ -8,5 +8,5 @@ interface MinorCredits {
 }
 
 export const sumMajorCredits = (subject1: string, subject2: string) => {
-
+  return 
 }
