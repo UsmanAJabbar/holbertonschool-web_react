@@ -35,5 +35,5 @@ export function executeWork(employee: DirectorInterface | TeacherInterface): str
 
 type Subjects = 'Math' | 'History';
 export function teachClass(todayClass:Subjects):string {
-  if (todayClass === 'Math' || 'History') return `Teaching ${todayClass}`;
+  if (['Math', 'History'].includes(todayClass)) return `Teaching ${todayClass}`;
 };
