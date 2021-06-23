@@ -1,7 +1,7 @@
-import $ from 'jquery';
+const $ = require('jquery');
 
 $('body').append(
-  $('<p>Holberton Dashboard</p>'),
-  $('<p>Dashboard data for the students</p>'),
-  $('<p>Copyright - Holberton School</p>'),
+  $('<p>').text('Holberton Dashboard'),
+  $('<p>').text('Dashboard data for the students'),
+  $('<p>').text('Copyright - Holberton School'),
 );
