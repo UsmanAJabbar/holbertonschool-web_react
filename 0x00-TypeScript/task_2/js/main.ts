@@ -33,7 +33,7 @@ export function executeWork(employee: DirectorInterface | TeacherInterface): str
   return employee.workTeacherTasks();
 }
 type Subjects = 'Math' | 'History';
-function teachClass(todayClass:Subjects):string { return `Teaching ${todayClass}` };
+export function teachClass(todayClass:Subjects):string { return `Teaching ${todayClass}` };
 
 // executeWork(employee: DirectorInterface | TeacherInterface)
 // function isDirector
