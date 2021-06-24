@@ -9,12 +9,12 @@ module.exports = {
   mode: 'production',
   module: {
     rules: [{
-              test: /\.(css)$/,
+              test: /\.css$/,
               use: ['style-loader','css-loader']
             },
             {
               test: /\.(png|jp(e*)g|svg)$/,
-              use: ['file-loader']
+              use: ['file-loader', 'image-webpack-loader']
             }]
   }
 }
