@@ -1,5 +1,5 @@
 const $ = require('jquery');
-const debounce = require('lodash.debounce');
+const _ = require('lodash');
 import '../css/main.css';
 
 
@@ -22,5 +22,5 @@ function updateCounter() {
   });
 }
 
-debounce(updateCounter, 100);
+_.debounce(updateCounter, 500);
 updateCounter();
