@@ -17,9 +17,11 @@ module.exports = {
               use: ['file-loader', 'image-webpack-loader']
            }]
   },
+  plugins: ["html-webpack-plugin", "clean-webpack-plugin"],
   devTool: 'inline-source-map',
   devServer: {
     contentBase: './public',
     port: 8564,
-  }
+  },
+  chunks: ['all']
 }
