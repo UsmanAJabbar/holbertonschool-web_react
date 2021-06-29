@@ -1,6 +1,6 @@
-const { React } = require('react');
-const { shallow, mount, render } = require('enzyme');
-const { Notification } = require('./Notifications')
+import React from 'react';
+import {shallow, mount, render} from 'enzyme';
+import Notification from './Notifications';
 
 describe('Test Notifications component', () => {
   it('test that Notifications renders without crashing', () => {

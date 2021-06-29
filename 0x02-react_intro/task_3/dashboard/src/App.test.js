@@ -1,5 +1,5 @@
-const { shallow, mount, render } = require('enzyme');
-const App = require('./App')
+import {shallow, mount, render} from 'enzyme';
+import App from './App';
 
 describe('Test App component', () => {
   it('test that App renders without crashing', () => {
