@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha src/*.test.js",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:jest": "jest"
   },
