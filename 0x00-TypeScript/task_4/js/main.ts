@@ -7,3 +7,18 @@ export const cTeacher: Subjects.TeacherInterface = {
   lastName: 'Salva',
   experienceTeachingC: 10
 }
+
+cpp.setTeacher(cTeacher);
+console.log('C++\n',
+            cpp.getRequirements(),
+            cpp.getAvailableTeacher());
+
+java.setTeacher(cTeacher);
+console.log('Java\n',
+            java.getRequirements(),
+            java.getAvailableTeacher());
+
+react.setTeacher(cTeacher);
+console.log('React\n',
+            react.getRequirements(),
+            react.getAvailableTeacher());
