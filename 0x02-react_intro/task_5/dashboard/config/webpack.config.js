@@ -8,11 +8,11 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './dist/',
+    contentBase: '../dist/',
     port: 8564,
     hot: true,
   },
-  plugins: [ new HtmlWebpackPlugin() ],
+  plugins: [ new HtmlWebpackPlugin({template: './dist/index.html'}) ],
   module: {
     rules: [{
               test: /\.css$/i,
@@ -37,5 +37,5 @@ module.exports = {
               }
             }],
   },
-  devtool: 'inline-source-map'
+  devtool: 'inline-source-map',
 }

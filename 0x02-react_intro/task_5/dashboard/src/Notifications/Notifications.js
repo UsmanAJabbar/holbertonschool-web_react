@@ -8,7 +8,6 @@ const Notification = () => <div className="Notifications">
                                      onClick={() => console.log('Close button has been clicked')}
                                      style={ { 'display': 'inline-block',
                                                'float': 'right',
-                                               'background-color': 'transparent',
                                                'padding': '0', 'margin': '0',
                                                'border': 'none' } }>
                                <img src={closeButton} alt="close button" style={ { 'height': '20px' } } />
