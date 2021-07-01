@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": ".babelrc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --config config/webpack.config.js",
-    "test": "jest"
+    "test": "jest",
+    "start": "webpack serve --mode development --config config/webpack.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +14,7 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
+    "@testing-library/jest-dom": "^5.14.1",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
     "file-loader": "^6.2.0",

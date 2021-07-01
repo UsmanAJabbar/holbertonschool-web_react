@@ -1,6 +1,6 @@
 import React from 'react';
 import './Notifications.css';
-import { getLatestNotifcation } from './utils';
+import { getLatestNotifcation } from '../utils/utils';
 import closeButton from './close-button.png';
 
 const Notification = () => <div className="Notifications">
