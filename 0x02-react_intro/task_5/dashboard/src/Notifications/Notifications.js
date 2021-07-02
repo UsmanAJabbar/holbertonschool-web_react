@@ -3,13 +3,15 @@ import './Notifications.css';
 import { getLatestNotifcation } from '../utils/utils';
 import closeButton from './close-button.png';
 
+const message = () => {console.log('Close button has been clicked');}
 const Notification = () => <div className="Notifications">
                              <button aria-label="Close"
                                      onClick={() => console.log('Close button has been clicked')}
                                      style={ { 'display': 'inline-block',
                                                'float': 'right',
                                                'padding': '0', 'margin': '0',
-                                               'border': 'none' } }>
+                                               'border': 'none',
+                                                backgroundColor: 'transparent' } }>
                                <img src={closeButton} alt="close button" style={ { 'height': '20px' } } />
                              </button>
                              <p>Here is the list of notifications</p>
@@ -19,4 +21,5 @@ const Notification = () => <div className="Notifications">
                                <li data-priority="urgent" dangerouslySetInnerHTML={ { __html: getLatestNotifcation() } }></li>
                              </ul>
                            </div>
+
 export default Notification;
