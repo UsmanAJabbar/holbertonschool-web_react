@@ -1,0 +1,15 @@
+:root {
+    --color-holberton-primary: #e0354b;
+    
+    --border: solid 3px var(--color-holberton-primary);
+}
+
+.App-footer {
+    margin-top: auto;
+    border-top: var(--border);
+}
+
+.App-footer p {
+    text-align: center;
+    font-style: italic;
+}

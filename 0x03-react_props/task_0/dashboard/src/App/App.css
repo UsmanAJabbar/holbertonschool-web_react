@@ -1,0 +1,22 @@
+:root {
+    --color-holberton-primary: #e0354b;
+    
+    --border: solid 3px var(--color-holberton-primary);
+}
+
+html {
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+html, body, #root, .App {
+    height: 100%;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+}
