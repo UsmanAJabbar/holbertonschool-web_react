@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import App from './App/App';
-import Notification from './Notifications/Notifications'
+import './assets/reset.css';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -14,7 +14,7 @@ function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
                     <th>{textFirstCell}</th>
                     <th>{textSecondCell}</th>
                   </>:
-                  <th colSpan={2}>{textFirstCell}</th>
+                  <th id="center" colSpan={2}>{textFirstCell}</th>
       }
     </tr>
   )
