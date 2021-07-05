@@ -6,7 +6,7 @@ import Notification from './Notifications/Notifications'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App isLoggedIn={true}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

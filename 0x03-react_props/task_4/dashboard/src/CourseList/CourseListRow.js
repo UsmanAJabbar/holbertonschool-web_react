@@ -2,23 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
-  if (isHeader == true && textSecondCell) {
-    return (
-              <tr>
-                <th>{textFirstCell}</th>
-                <th>{textSecondCell}</th>
-              </tr>
-           )
-  }
-  if (isHeader == false) {
-    return (
-              <tr>
-                <td>{textFirstCell}</td>
-                <td>{textSecondCell}</td>
-              </tr>
-           )
-  }
-  return (<tr><th colSpan={2}>{textFirstCell}</th></tr>)
+  return (
+    <tr>
+      {
+        (isHeader == false) ?
+          <>
+            <td>{textFirstCell}</td>
+            <td>{textSecondCell}</td>
+          </>: (isHeader == true && textSecondCell) ?
+                  <>
+                    <th>{textFirstCell}</th>
+                    <th>{textSecondCell}</th>
+                  </>:
+                  <th colSpan={2}>{textFirstCell}</th>
+      }
+    </tr>
+  )
 }
 
 CourseListRow.defaultProps = {

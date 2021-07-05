@@ -20,4 +20,14 @@ describe('Test App component', () => {
     const wrapper = shallow(<App />);
     assert.equal(wrapper.find('Footer').exists(), true);
   });
+  it('Tests whether the <Login /> is rendered rather than <CourseList />', () => {
+    const wrapper = shallow(<App />);
+    assert.equal(wrapper.find('Login').exists(), true);
+    assert.equal(wrapper.find('CourseList').exists(), false);
+  });
+  it('Tests whether the <CourseList /> is rendered rather than <Login />', () => {
+    const wrapper = shallow(<App isLoggedIn={true} />);
+    assert.equal(wrapper.find('Login').exists(), false);
+    assert.equal(wrapper.find('CourseList').exists(), true);
+  });
 });
