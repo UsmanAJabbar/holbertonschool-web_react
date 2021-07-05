@@ -1,6 +1,6 @@
 import assert from  'assert';
 import { shallow } from 'enzyme';
-import CourseListRow from './CourseListRow'
+import CourseListRow from './CourseListRow';
 
 describe('Test suite for the courseListRow component', () => {
   it('Tests whether the courseListRow has been rendered', () => {
