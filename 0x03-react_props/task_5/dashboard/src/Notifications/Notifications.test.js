@@ -6,6 +6,23 @@ import Notification from './Notifications';
 
 
 describe('Test Notifications component', () => {
+
+  let displayDrawerListNotifs = null;
+  let displayDrawerNoArgs = null;
+  let noArgs = null;
+
+  beforeEach(() => {
+    displayDrawerListNotifs = shallow(<Notification displayDrawer={true}
+                                                    listNotifications={listNotifications}
+                                      />);
+    displayDrawerNoArgs = shallow(<Notification displayDrawer={true}/>);
+    noArgs = shallow(<Notification />);
+  });
+
+  afterEach(() => {
+    displayDrawerNoArgs = displayDrawerListNotifs = noArgs = null;
+  })
+  
   const listNotifications = [
     {id: 1, type: 'default', value: 'New course available'},
     {id: 2, type: 'urgent', value: 'New resume available'},
@@ -13,62 +30,42 @@ describe('Test Notifications component', () => {
   ];
 
   it('test that Notifications renders without crashing', () => {
-    const wrapper = shallow(<Notification displayDrawer={true}
-                                          listNotifications={listNotifications} />);
-    assert.equal(wrapper.length, 1);
+    assert.equal(displayDrawerListNotifs.length, 1);
   })
   it('verify that Notifications renders three list items', () => {
-    const wrapper = shallow(<Notification displayDrawer={true}
-                                          listNotifications={listNotifications} />);
-    assert.equal(wrapper.find('ul').children().length, 3);
+    assert.equal(displayDrawerListNotifs.find('ul').children().length, 3);
   });
   it('verify that Notifications renders the text', () => {
-    const wrapper = shallow(<Notification displayDrawer={true}
-                                          listNotifications={listNotifications} />);
-    assert.equal(wrapper.find('p').last().text(), 'Here is the list of notifications');
+    assert.equal(displayDrawerListNotifs.find('p').last().text(), 'Here is the list of notifications');
   });
   it('Verifies whether NotificationItem element renders', () => {
-    const wrapper = shallow(<Notification displayDrawer={true}
-                                          listNotifications={listNotifications} />);
-    assert.equal(wrapper.find('NotificationItem').exists(), true);
+    assert.equal(displayDrawerListNotifs.find('NotificationItem').exists(), true);
   });
   it('Verifies whether NotificationItem element renders the exp output', () => {
-    const wrapper = shallow(<Notification displayDrawer={true}
-                                          listNotifications={listNotifications} />);
-    assert.equal(wrapper.find('NotificationItem').last().html(), '<li data-notification-type=\"urgent\"><strong>Urgent requirement</strong> - complete by EOD</li>');
+    assert.equal(displayDrawerListNotifs.find('NotificationItem').last().html(), '<li data-notification-type=\"urgent\"><strong>Urgent requirement</strong> - complete by EOD</li>');
   });
   it('Verfies whether menuItem is displayed when <Notification displayDrawer={false}>', () => {
-    const wrapper = shallow(<Notification displayDrawer={false}/>);
-    assert.equal(wrapper.find('.menuItem').exists(), true);
+    assert.equal(noArgs.find('.menuItem').exists(), true);
   });
   it('Verifies the Notifications box is not being displayed when <Notification displayDrawer={false}>', () => {
-    const wrapper = shallow(<Notification displayDrawer={false}/>);
-    assert.equal(wrapper.find('.Notifications').exists(), false);
+    assert.equal(noArgs.find('.Notifications').exists(), false);
   });
   it('Verfies whether menuItem is displayed when <Notification displayDrawer={true}>', () => {
-    const wrapper = shallow(<Notification displayDrawer={true}
-                                          listNotifications={listNotifications} />);
-    assert.equal(wrapper.find('.menuItem').exists(), true);
+    assert.equal(displayDrawerListNotifs.find('.menuItem').exists(), true);
   });
   it('Verifies the Notifications box is not being displayed when <Notification displayDrawer={true}>', () => {
-    const wrapper = shallow(<Notification displayDrawer={true}
-                                          listNotifications={listNotifications} />);
-    assert.equal(wrapper.find('.Notifications').exists(), true);
+    assert.equal(displayDrawerListNotifs.find('.Notifications').exists(), true);
   });
   it('Verifies whether Notifications renders correctly if you pass an empty array', () => {
-    const wrapper = shallow(<Notification displayDrawer={true} />);
-    assert.equal(wrapper.find('NotificationItem').length, 1);
-    assert.equal(wrapper.find('NotificationItem').html().includes('No new notification for now'), true);
+    assert.equal(displayDrawerNoArgs.find('NotificationItem').length, 1);
+    assert.equal(displayDrawerNoArgs.find('NotificationItem').html().includes('No new notification for now'), true);
   });
   it('Verifies whether Notifications renders correctly if you don\'t pass an empty array', () => {
-    const wrapper = shallow(<Notification displayDrawer={true}
-                                          listNotifications={listNotifications} />);
-    assert.equal(wrapper.find('NotificationItem').length, 3);
+    assert.equal(displayDrawerListNotifs.find('NotificationItem').length, 3);
   });
   it('Verifies whether "Here is the list of notifications" is displayed when listNotifications is empty', () => {
-    const wrapper = shallow(<Notification displayDrawer={true} />);
-    assert.equal(wrapper.find('NotificationItem').length, 1);
-    assert.equal(wrapper.find('NotificationItem').html().includes('No new notification for now'), true);
-    assert.equal(wrapper.find('NotificationItem').html().includes('Here is the list of notifications'), false);
+    assert.equal(displayDrawerNoArgs.find('NotificationItem').length, 1);
+    assert.equal(displayDrawerNoArgs.find('NotificationItem').html().includes('No new notification for now'), true);
+    assert.equal(displayDrawerNoArgs.find('NotificationItem').html().includes('Here is the list of notifications'), false);
   });
 });
