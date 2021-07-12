@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class BodySection extends React.Component {
   constructor(props) {
@@ -15,6 +16,17 @@ class BodySection extends React.Component {
     );
 
   }
+}
+
+BodySection.defaultProps = {
+  title: '',
+  children: '',
+}
+BodySection.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.node, PropTypes.string
+  ])
 }
 
 export default BodySection;

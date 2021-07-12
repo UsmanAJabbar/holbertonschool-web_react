@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 const assert = require('assert');
 import { shallow } from 'enzyme';
 import App from './App';
