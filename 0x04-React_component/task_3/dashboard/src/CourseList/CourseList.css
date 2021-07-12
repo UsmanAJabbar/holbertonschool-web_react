@@ -1,0 +1,20 @@
+table#CourseList {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    width: 1100px;
+    max-width: 80%;
+}
+th {
+    text-align: left;
+}
+#center {
+    text-align: center;
+}
+table, th {
+    border: 1px solid #dbdbdb;
+    border-collapse: collapse;
+}
+td, th {
+    padding: 5px;
+}
