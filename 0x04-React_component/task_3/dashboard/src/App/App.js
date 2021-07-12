@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* React components */
 import Notifications from '../Notifications/Notifications';
 import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import CourseList from '../CourseList/CourseList'
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
+import BodySection from '../BodySection/BodySection';
 
 import { getLatestNotifcation } from '../utils/utils';
 
@@ -38,7 +41,18 @@ class App extends React.Component {
       <React.Fragment>
         <Notifications listNotifications={listNotifications} />
         <Header />
-        {(isLoggedIn === true) ? <CourseList listCourses={listCourses} /> : <Login />}
+        {
+          (isLoggedIn === true)
+            ? <BodySectionWithMarginBottom title={'Course list'}>
+                <CourseList listCourses={listCourses} />
+              </BodySectionWithMarginBottom>
+            : <BodySectionWithMarginBottom title={'Log in to continue'}>
+                <Login />
+              </BodySectionWithMarginBottom>
+        }
+        <BodySection title={'News from the School'} >
+          <p>Some random text</p>
+        </BodySection>
         <Footer />
       </React.Fragment>
     );
