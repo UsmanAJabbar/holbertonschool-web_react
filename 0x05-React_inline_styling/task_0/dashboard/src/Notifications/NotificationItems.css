@@ -1,0 +1,6 @@
+[data-notification-type^="urgent"] {
+    color: red;
+}
+[data-notification-type^="default"] {
+    color: #1e0764;
+}
