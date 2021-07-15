@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyleSheet, css } from 'aphrodite';
 
 /* React components */
 import Notifications from '../Notifications/Notifications';
@@ -65,6 +66,15 @@ App.propTypes = {
   isLoggedIn: PropTypes.bool,
   logOut: PropTypes.func
 }
+
+const styles = StyleSheet.create({
+  body: {
+
+  },
+  footer: {
+    
+  }
+})
 
 const listCourses = [
   {id: 1, credit: 60, name: 'ES6'},
