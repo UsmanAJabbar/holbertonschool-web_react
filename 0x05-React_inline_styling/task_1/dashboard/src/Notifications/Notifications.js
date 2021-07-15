@@ -6,7 +6,6 @@ import NotificationItemShape from './NotificationItemShape';
 
 import PropTypes from 'prop-types';
 import closeButton from './close-button.png';
-import './Notifications.css';
 
 class Notification extends React.Component {
   constructor(props) {
@@ -46,14 +45,14 @@ class Notification extends React.Component {
                                       value={'No new notification for now'}
                     />
                   : listNotifications.map(({id, type, value, html}) =>
-                      <NotificationItem key={id}
-                                        id={id}
-                                        type={type}
-                                        value={value}
-                                        html={html}
-                                        markAsRead={this.markAsRead}
-                      />
-                    )
+                    <NotificationItem key={id}
+                                      id={id}
+                                      type={type}
+                                      value={value}
+                                      html={html}
+                                      markAsRead={this.markAsRead}
+                    />
+                  )
                 }
               </ul>
             </div> : null

@@ -5,8 +5,6 @@ import { StyleSheet, css } from 'aphrodite';
 import CourseListRow from './CourseListRow';
 import CourseShape from './CourseShape';
 
-// import './CourseList.css';
-
 function CourseList({ listCourses }) {
   return (
     <table className={css(styles.CourseList, styles.rowBorder)}>

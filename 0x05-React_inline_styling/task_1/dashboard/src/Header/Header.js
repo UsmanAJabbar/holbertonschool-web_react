@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
 import logo from '../assets/logo.jpg';
-// import './Header.css';
 
 const Header = () => (
   <div className={`App-header ` + css(styles.header)}>
