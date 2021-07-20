@@ -12,7 +12,12 @@ module.exports = {
     port: 8564,
     hot: true,
   },
-  plugins: [ new HtmlWebpackPlugin({template: './dist/index.html'}) ],
+  plugins: [ 
+    new HtmlWebpackPlugin({
+      template: './dist/index.html',
+      inject: false
+    })
+  ],
   module: {
     rules: [{
               test: /\.css$/i,
