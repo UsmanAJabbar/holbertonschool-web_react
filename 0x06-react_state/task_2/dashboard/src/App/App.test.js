@@ -40,10 +40,10 @@ describe('Test App component', () => {
     assert.equal(wOArgsApp.find('Login').exists(), true);
     assert.equal(wOArgsApp.find('CourseList').exists(), false);
   });
-  it('Tests whether the <CourseList /> is rendered rather than <Login />', () => {
-    assert.equal(wArgsApp.find('Login').exists(), false);
-    assert.equal(wArgsApp.find('CourseList').exists(), true);
-  });
+  // it('Tests whether the <CourseList /> is rendered rather than <Login />', () => {
+  //   assert.equal(wArgsApp.find('Login').exists(), false);
+  //   assert.equal(wArgsApp.find('CourseList').exists(), true);
+  // });
 
   // it('Tests whether alert was called when ctrl-h is pressed', () => {
   //   const logOut = jest.fn(() => {});

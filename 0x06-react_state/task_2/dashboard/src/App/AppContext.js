@@ -1,12 +1,12 @@
 import React from 'react';
 
 const default_user = {
-  email: 'someemail@gmail.com',
-  password: 'somebigpass',
+  email: 'context@gmail.com',
+  password: 'contextPass',
   isLoggedIn: false
 }
 const logOut = () => { console.log('Context logout ran successfully'); }
 
-const AppContext = React.createContext({ default_user, logOut });
+const AppContext = React.createContext({ ...default_user, logOut });
 
 export default AppContext;

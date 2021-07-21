@@ -5,11 +5,11 @@ import logo from '../assets/logo.jpg';
 import AppContext from '../App/AppContext';
 
 class Header extends React.Component {
+  static contextType = AppContext;
   constructor(props) {
     super(props)
   }
   render () {
-    console.log(this.context);
     return (
       <div className={`App-header ${css(styles.header)}`}>
         <img className={css(styles.imgSize)} src={logo} alt=""/>
@@ -26,8 +26,6 @@ class Header extends React.Component {
     )
   }
 }
-
-Header.contextType = AppContext;
 
 const styles = StyleSheet.create({
   header: {
