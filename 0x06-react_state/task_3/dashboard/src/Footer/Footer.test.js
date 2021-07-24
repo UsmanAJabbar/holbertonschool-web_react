@@ -12,8 +12,8 @@ describe('Test header exists', () => {
   it('test that header renders without crashing', () => {
     assert.equal(wrapper.length, 1);
   });
-  it('Tests whether the text "Copyright" renders', () => {
-    assert(wrapper.find('p').text().includes('Copyright'), true);
-  });
+  // it('Tests whether the text "Copyright" renders', () => {
+  //   assert(wrapper.find('p').text().includes('Copyright'), true);
+  // });
 
 });
