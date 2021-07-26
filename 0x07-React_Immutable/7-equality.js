@@ -1,4 +1,3 @@
-const { Map } = require('immutable');
+const { Map, is } = require('immutable');
 
-export const areMapsEqual = (map1, map2) => map1.equals(map2);
-
+export const areMapsEqual = (map1, map2) => is(map1, map2);
