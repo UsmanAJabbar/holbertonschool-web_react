@@ -1,4 +1,4 @@
-const { Map } = require("immutable");
+const { Map } = require('immutable');
 
 export const map = Map({
   1: 'Liam',
@@ -9,7 +9,9 @@ export const map = Map({
   6: 'Lucas',
 });
 
-export const map2 = map.merge({
-  2: 'Benjamin',
-  4: 'Oliver'
+export const map2 = map.withMutations((map1instance) => {
+  for (const [key, value] of Object.entries({
+    2: 'Benjamin',
+    4: 'Oliver',
+  })) map1instance.set(key, value);
 });
