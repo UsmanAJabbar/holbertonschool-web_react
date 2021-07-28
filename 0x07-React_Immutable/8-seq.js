@@ -5,11 +5,27 @@ const printBestStudents = (studentsObj) => {
     .filter((student) => student.score >= 70)
     .toJS();
 
-  Object.values(filteredStudents)
-    .map((student) => console.log(
-      student.firstName[0].toUpperCase() + student.firstName.slice(1),
-      student.lastName[0].toUpperCase() + student.lastName.slice(1),
-    ));
+  for (const student of Object.values(filteredStudents)) {
+    student.firstName = student.firstName[0].toUpperCase() + student.lastName.slice(1)
+    student.lastName = student.lastName[0].toUpperCase() + student.lastName.slice(1)
+  }
+
+  console.log(filteredStudents);
 };
 
 export default printBestStudents;
+
+// const grades = {
+//   1: {
+//     score: 99,
+//     firstName: 'guillaume',
+//     lastName: 'salva',
+//   },
+//   12: {
+//     score: 99,
+//     firstName: 'guillaume',
+//     lastName: 'salva',
+//   }
+// };
+
+// printBestStudents(grades)
