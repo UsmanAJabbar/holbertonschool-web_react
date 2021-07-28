@@ -10,8 +10,5 @@ export const map = Map({
 });
 
 export const map2 = map.withMutations((map1instance) => {
-  for (const [key, value] of Object.entries({
-    2: 'Benjamin',
-    4: 'Oliver',
-  })) map1instance.set(key, value);
+  map1instance.set(2, 'Benjamin').set(4, 'Oliver');
 });
