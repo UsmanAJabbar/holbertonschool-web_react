@@ -1,4 +1,4 @@
-const { Seq, Map } = require('immutable');
+import { Seq, Map } from 'immutable';
 
 const printBestStudents = (studentsObj) => {
   const filteredStudents = Seq(Map(studentsObj))
