@@ -15,17 +15,12 @@ const printBestStudents = (studentsObj) => {
 
 export default printBestStudents;
 
-// const grades = {
-//   1: {
-//     score: 99,
-//     firstName: 'guillaume',
-//     lastName: 'salva',
-//   },
-//   12: {
-//     score: 99,
-//     firstName: 'guillaume',
-//     lastName: 'salva',
-//   }
-// };
+const grades = {
+  1: {
+    score: 99,
+    firstName: 'guillaume',
+    lastName: 'salva',
+  }
+};
 
-// printBestStudents(grades)
+printBestStudents(grades)
