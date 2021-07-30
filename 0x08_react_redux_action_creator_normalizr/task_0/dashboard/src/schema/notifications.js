@@ -1,4 +1,4 @@
-import * as notifications from '../../../../notifications.json';
+import { default as notifications } from '../../../../notifications.json';
 
 /**
  * getAllNotificationsByUser =>
