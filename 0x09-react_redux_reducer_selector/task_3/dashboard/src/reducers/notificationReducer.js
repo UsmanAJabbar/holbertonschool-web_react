@@ -4,7 +4,7 @@ import {
   FETCH_NOTIFICATIONS_SUCCESS,
 } from '../actions/notificationActionTypes';
 
-const notificationsReducer = (state = {}, action = { type: '' }) => {
+const notificationsReducer = (state = { filter: '', notifications: [] }, action = { type: '' }) => {
   switch (action.type) {
     case FETCH_NOTIFICATIONS_SUCCESS:
       state = {
