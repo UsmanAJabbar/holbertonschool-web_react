@@ -2,7 +2,6 @@ import {
   MARK_AS_READ,
   SET_TYPE_FILTER,
   FETCH_NOTIFICATIONS_SUCCESS,
-  NotificationTypeFilters
 } from '../actions/notificationActionTypes';
 
 const notificationsReducer = (state = {}, action = { type: '' }) => {
@@ -17,7 +16,7 @@ const notificationsReducer = (state = {}, action = { type: '' }) => {
     case MARK_AS_READ:
       state = {
         filter: action.filter,
-        notifications: actions.data.map(
+        notifications: [ ...state.notifications ].map(
           notificationObj => ({
             ...notificationObj,
             isRead: (action.index == notificationObj.id) ? true : notificationObj.isRead || false
@@ -27,12 +26,7 @@ const notificationsReducer = (state = {}, action = { type: '' }) => {
     case SET_TYPE_FILTER:
       state = {
         filter: action.filter,
-        notifications: actions.data.map(
-          notificationObj => ({
-            ...notificationObj,
-            isRead: (action.index == notificationObj.id) ? false : notificationObj.isRead || false
-          })
-        )
+        notifications: [ ...state.notifications ]
       }
     default:
       break
