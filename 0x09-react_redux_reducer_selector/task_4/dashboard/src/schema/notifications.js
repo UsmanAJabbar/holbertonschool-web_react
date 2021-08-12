@@ -1,8 +1,6 @@
 import { default as notificationsJSON } from '../../dist/notifications.json';
 import { normalize, schema } from 'normalizr';
 
-// Loop through notifications filters and pulling out objects where userId == notifications.someId.author
-
 /**
  * getAllNotificationsByUser =>
  * return a list containing all the context objects
@@ -16,9 +14,7 @@ const getAllNotificationsByUser = (userId) => {
   for (const notificationId in notifications)
     if (notifications[notificationId].author === userId)
       messagesByUser.push(
-        messages[
-          notifications[notificationId].context
-        ]
+        messages[ notifications[notificationId].context ]
       );
 
   return messagesByUser;
@@ -41,5 +37,10 @@ const notification = new schema.Entity(
 );
 const normalizedData = normalize(notificationsJSON, [notification]);
 
+const notificationsNormalizer = (data) => normalize(data, [notification]);
 
-export { getAllNotificationsByUser, normalizedData, notification };
+export {
+  getAllNotificationsByUser,
+  normalizedData,
+  notificationsNormalizer
+};
