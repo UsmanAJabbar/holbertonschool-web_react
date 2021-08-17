@@ -72,11 +72,12 @@ describe('Test App component', () => {
   });
   it('Tests whether fromJS returns the right object', () => {
     let state = fromJS({
-      isUserLoggedIn: true
+      isUserLoggedIn: true,
+      isNotificationDrawerVisible: false
     });
     expect(mapStateToProps(state))
       .toStrictEqual(
-        { isLoggedIn: true, displayDrawer: false || undefined }
+        { isLoggedIn: true, displayDrawer: false }
       )
   })
 });
