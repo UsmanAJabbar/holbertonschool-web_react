@@ -133,5 +133,5 @@ const mapDispatchToProps = {
   login: loginRequest
 };
 
-connect(mapStateToProps, mapDispatchToProps)(App);
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+export { App as newApp };

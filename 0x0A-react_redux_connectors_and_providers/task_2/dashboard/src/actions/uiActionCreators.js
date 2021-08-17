@@ -6,10 +6,23 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE
 } from './uiActionTypes';
-import { createStore } from 'redux';
-import { fetch } from 'node-fetch';
+import * as user from '../../dist/login-success.json';
+import fetch from 'node-fetch';
 
-const store = createStore(() => {});
+
+/*======= This is my api simulation =======*/
+const ping = (any) => {
+  const response = {
+      json: () => user
+  }
+  return new Promise((resolve, reject) => {
+      if (!user) reject("Bad connection");
+      setTimeout(() => {
+          resolve(response);
+      }, 250);
+  });
+}
+
 const login = (email, password) => ({
   user: { email, password },
   'type': LOGIN
@@ -21,17 +34,19 @@ const loginSuccess = () => ({ 'type': LOGIN_SUCCESS });
 const loginFailure = () => ({ 'type': LOGIN_FAILURE });
 
 const loginRequest = (email, password) => {
-  store.dispatch(login(email, password));
+  const promise = ping();
 
-  fetch(
-    '../../dist/login-success.json'
-    ).then(
-      jsonData => jsonData.json()
-    ).then(
-      store.dispatch(loginSuccess())
-    ).catch(
-      store.dispatch(loginFailure())
-    );
+  return (dispatch) => {
+    dispatch(login(email, password));
+    return promise
+      .then(
+        jsonData => jsonData.json()
+      ).then(
+        () => dispatch(loginSuccess())
+      ).catch(
+        () => dispatch(loginFailure())
+      );
+  };
 }
 
 export {

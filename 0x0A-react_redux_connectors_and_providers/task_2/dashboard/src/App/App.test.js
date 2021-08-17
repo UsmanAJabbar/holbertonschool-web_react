@@ -6,8 +6,8 @@ const assert = require('assert');
 import { shallow } from 'enzyme';
 import { StyleSheetTestUtils } from 'aphrodite';
 import { fromJS } from 'immutable';
-
-import App, { mapStateToProps } from './App';
+import { mapStateToProps } from '../App/App';
+import { newApp as App } from './App';
 
 
 describe('Test App component', () => {
