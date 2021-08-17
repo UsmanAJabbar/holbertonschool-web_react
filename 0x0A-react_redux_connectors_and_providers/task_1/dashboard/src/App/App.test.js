@@ -75,6 +75,8 @@ describe('Test App component', () => {
       isUserLoggedIn: true
     });
     expect(mapStateToProps(state))
-      .toStrictEqual({ isLoggedIn: true })
+      .toStrictEqual(
+        { isLoggedIn: true, displayDrawer: false || undefined }
+      )
   })
 });

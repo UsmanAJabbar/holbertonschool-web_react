@@ -14,7 +14,8 @@ import AppContext from './AppContext';
 
 import { getLatestNotifcation } from '../utils/utils';
 import {
-  display
+  displayNotificationDrawer,
+  hideNotificationDrawer
 } from '../actions/uiActionCreators';
 
 class App extends React.Component {
@@ -107,8 +108,8 @@ class App extends React.Component {
       <AppContext.Provider value={this.state}>
         <Notifications listNotifications={this.state.listNotifications}
                        displayDrawer={this.props.displayDrawer}
-                       handleDisplayDrawer={this.handleDisplayDrawer}
-                       handleHideDrawer={this.handleHideDrawer}
+                       handleDisplayDrawer={this.props.handleDisplayDrawer}
+                       handleHideDrawer={this.props.handleHideDrawer}
                        markNotificationAsRead={this.markNotificationAsRead}
         />
         <Header />
@@ -131,7 +132,7 @@ class App extends React.Component {
 
 }
 
-export const mapStateToProps = (state, displayDrawer) => ({
+export const mapStateToProps = (state) => ({
   isLoggedIn: state.get('isUserLoggedIn'),
   displayDrawer: state.get('isNotificationDrawerVisible')
 });
@@ -142,5 +143,10 @@ const listCourses = [
   {id: 3, credit: 40, name: 'React'},
 ];
 
-connect(mapStateToProps)(App);
+const mapDispatchToProps = {
+  displayNotificationDrawer,
+  hideNotificationDrawer
+};
+
+connect(mapStateToProps, mapDispatchToProps)(App);
 export default App;
