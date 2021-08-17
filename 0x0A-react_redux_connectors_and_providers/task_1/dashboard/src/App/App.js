@@ -23,14 +23,11 @@ class App extends React.Component {
     super(props);
 
     this.logoutHander           = this.logoutHander.bind(this);
-    this.handleHideDrawer       = this.handleHideDrawer.bind(this);
-    this.handleDisplayDrawer    = this.handleDisplayDrawer.bind(this);
     this.logIn                  = this.logIn.bind(this);
     this.logOut                 = this.logOut.bind(this);
     this.markNotificationAsRead = this.markNotificationAsRead.bind(this);
 
     this.state = {
-      displayDrawer: false,
       email: 'someemail@gmail.com',
       password: 'somebigpass',
       logOut: () => this.logOut(),
@@ -55,19 +52,7 @@ class App extends React.Component {
       event.preventDefault();
       alert('Logging you out');
       this.state.logOut();
-      this.handleHideDrawer();
     }
-  }
-
-  handleDisplayDrawer () {
-    this.setState({
-      displayDrawer: true
-    });
-  }
-  handleHideDrawer () {
-    this.setState({
-      displayDrawer: false
-    });
   }
 
   logIn (email, password) {
@@ -77,8 +62,7 @@ class App extends React.Component {
       isLoggedIn: true
     }, () => console.log(
       `Successfully set the email and password to ${this.state.email}:${this.state.password}`, this.state
-    ))
-    this.handleDisplayDrawer();
+    ));
   }
   logOut () {
     this.setState({
@@ -88,7 +72,6 @@ class App extends React.Component {
     }, () => console.log(
       'Successfully logged out of the website, the state of the current state is', this.state
     ))
-    this.handleHideDrawer();
   }
 
   markNotificationAsRead (id) {
@@ -132,10 +115,18 @@ class App extends React.Component {
 
 }
 
-export const mapStateToProps = (state) => ({
-  isLoggedIn: state.get('isUserLoggedIn'),
-  displayDrawer: state.get('isNotificationDrawerVisible')
-});
+App.defaultProps = {
+  isLoggedIn: false,
+  displayDrawer: false,
+  displayNotificationDrawer: () => {},
+  hideNotificationDrawer: () => {}
+}
+App.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  displayDrawer: PropTypes.bool,
+  displayNotificationDrawer: PropTypes.func,
+  hideNotificationDrawer: PropTypes.func
+}
 
 const listCourses = [
   {id: 1, credit: 60, name: 'ES6'},
@@ -143,6 +134,11 @@ const listCourses = [
   {id: 3, credit: 40, name: 'React'},
 ];
 
+
+export const mapStateToProps = (state) => ({
+  isLoggedIn: state.get('isUserLoggedIn'),
+  displayDrawer: state.get('isNotificationDrawerVisible')
+});
 const mapDispatchToProps = {
   displayNotificationDrawer,
   hideNotificationDrawer
