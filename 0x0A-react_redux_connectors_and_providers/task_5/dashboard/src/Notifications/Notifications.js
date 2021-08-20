@@ -120,4 +120,8 @@ Notification.propTypes = {
   markNotificationAsRead: PropTypes.func
 }
 
+const mapStateToProps = (state) => ({
+  listNotifications: state.notifications.get('messages')
+});
+
 export default Notification;

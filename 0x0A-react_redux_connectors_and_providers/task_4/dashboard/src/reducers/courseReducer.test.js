@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { Map } from 'immutable';
-import courseReducer from './courseReducer';
+import { courseReducer } from './courseReducer';
 import {
   fetchCourseSuccess,
   selectCourse,

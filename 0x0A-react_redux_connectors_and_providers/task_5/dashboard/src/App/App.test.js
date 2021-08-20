@@ -35,14 +35,4 @@ describe('Test App component', () => {
     assert.equal(wOArgsApp.find('Login').exists(), true);
     assert.equal(wOArgsApp.find('CourseList').exists(), false);
   });
-  it('Tests whether fromJS returns the right object', () => {
-    let state = fromJS({
-      isUserLoggedIn: true,
-      isNotificationDrawerVisible: false
-    });
-    expect(mapStateToProps(state))
-      .toStrictEqual(
-        { isLoggedIn: true, displayDrawer: false }
-      )
-  })
 });
