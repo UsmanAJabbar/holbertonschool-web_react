@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
+import PropTypes from 'prop-types';
 
 import logo from '../assets/logo.jpg';
 import { connect } from 'react-redux';
@@ -54,6 +55,16 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   logout
+}
+
+Header.defaultType = {
+  user: null,
+  logout: () => {},
+}
+
+Header.propTypes = {
+  user: PropTypes.object,
+  logout: PropTypes.func
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
 export { Header as newHeader };

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { getFooterCopy, getFullYear } from '../utils/utils';
 
@@ -15,6 +16,13 @@ const Footer = ({ user }) => (
 const mapStateToProps = (state) => ({
   user: state.get('user')
 });
+
+Footer.defaultProps = {
+  user: null
+}
+Footer.propTypes = {
+  user: PropTypes.object
+}
 
 export default connect(mapStateToProps)(Footer)
 export { Footer };

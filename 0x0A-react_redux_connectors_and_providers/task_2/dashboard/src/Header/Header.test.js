@@ -39,22 +39,4 @@ describe('Test header exists', () => {
   it('Tests whether the login welcome message exists if context does not indicate a successful login', () => {
     assert.equal(wrapper.find('#logoutSection').exists(), false);
   });
-  // it('Tests whether the login webcome message exists if the context says that there is a login', () => {
-  //   mountedWrapper.setContext({
-  //     isLoggedIn: true,
-  //     email: 'email',
-  //     password: 'password'
-  //   });
-  //   wrapper.setContext({
-  //     isLoggedIn: true,
-  //     email: 'email',
-  //     password: 'password'      
-  //   })
-  //   console.log(
-  //     mountedWrapper.context('isLoggedIn'),
-  //     wrapper.context('isLoggedIn'),
-  //     { context: notLoggedInContext }
-  //   )
-  //   assert.equal(mountedWrapper.find('#logoutSection').exists(), true);
-  // })
 });
