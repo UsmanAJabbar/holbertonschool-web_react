@@ -1,7 +1,22 @@
-import { courseReducer } from './courseReducer';
-import { notificationsReducer } from './notificationReducer';
-import { uiReducer } from './uiReducer';
+import {
+  courseReducer,
+  initialState as courseInitialState
+} from './courseReducer';
+import {
+  notificationsReducer,
+  initialState as notificationsInitialState
+} from './notificationReducer';
+import {
+  uiReducer,
+  initialState as uiInitialState
+} from './uiReducer';
 
+
+const rootReducerInitialState = {
+  courses: courseInitialState,
+  notifications: notificationsInitialState,
+  ui: uiInitialState
+}
 const rootReducer = {
   courses: courseReducer,
   notifications: notificationsReducer,
@@ -9,5 +24,6 @@ const rootReducer = {
 };
 
 export {
-  rootReducer
+  rootReducer,
+  rootReducerInitialState
 };

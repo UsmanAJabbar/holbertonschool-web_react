@@ -10,14 +10,15 @@ import {
 } from 'redux';
 
 import App from './App/App';
-import { rootReducer } from './reducers/rootReducer';
+
+import { rootReducer, rootReducerInitialState } from './reducers/rootReducer';
 
 import './assets/reset.css';
 import './index.css';
 
 const store = createStore(
   combineReducers(rootReducer),
-  initialState,
+  rootReducerInitialState,
   applyMiddleware(ReduxThunk)
 );
 

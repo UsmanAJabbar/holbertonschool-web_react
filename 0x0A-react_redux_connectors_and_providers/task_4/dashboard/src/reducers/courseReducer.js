@@ -6,8 +6,8 @@ import {
 } from '../actions/courseActionTypes';
 import { coursesNormalizer } from '../schema/courses';
 
-let initialState = [];
-const courseReducer = (state = Map(initialState), action = { type: '' }) => {
+let initialState = Map([]);
+const courseReducer = (state = initialState, action = { type: '' }) => {
   switch (action.type) {
     case FETCH_COURSE_SUCCESS:
       const normalizedCourses = coursesNormalizer(
@@ -21,8 +21,11 @@ const courseReducer = (state = Map(initialState), action = { type: '' }) => {
     case UNSELECT_COURSE:
       return state.setIn([action.index + 1, 'isSelected'], false);
     default:
-      break;
+      return state;
   };
 };
 
-export default courseReducer;
+export {
+  courseReducer,
+  initialState
+};

@@ -14,7 +14,7 @@ const Footer = ({ user }) => (
 )
 
 const mapStateToProps = (state) => ({
-  user: state.get('user')
+  user: state.ui.get('user')
 });
 
 Footer.defaultProps = {

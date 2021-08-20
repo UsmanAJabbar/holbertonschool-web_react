@@ -6,8 +6,11 @@ import {
 import { Map } from 'immutable';
 import { notificationsNormalizer } from '../schema/notifications';
 
-let initialState = { filter: '', notifications: [] };
-const notificationsReducer = (state = Map(initialState), action = { type: '' }) => {
+let initialState = Map({
+  filter: '',
+  notifications: []
+});
+const notificationsReducer = (state = initialState, action = { type: '' }) => {
   state = Map(state);
   switch (action.type) {
     case FETCH_NOTIFICATIONS_SUCCESS:
@@ -31,5 +34,6 @@ const notificationsReducer = (state = Map(initialState), action = { type: '' }) 
 }
 
 export {
-  notificationsReducer
+  notificationsReducer,
+  initialState
 };
