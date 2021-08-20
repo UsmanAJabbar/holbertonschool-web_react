@@ -3,7 +3,7 @@ import { StyleSheet, css } from 'aphrodite';
 import { connect } from 'react-redux';
 
 import { NotificationItem } from './NotificationItem';
-import NotificationItemShape from './NotificationItemShape';
+// import NotificationItemShape from './NotificationItemShape';
 import { fetchNotifications } from '../actions/notificationActionCreators';
 
 import PropTypes from 'prop-types';
@@ -40,7 +40,7 @@ class Notification extends React.PureComponent {
           ? <div className={`Notifications ${css(styles.container)}`}>
               <button aria-label="Close"
                       style={ buttonCSS }
-                      onClick={function () {
+                      onClick={() => {
                         console.log('Close button has been clicked');
                         handleHideDrawer();
                       }}
@@ -121,7 +121,7 @@ Notification.defaultProps = {
 }
 Notification.propTypes = {
   displayDrawer: PropTypes.bool,
-  listNotifications: PropTypes.arrayOf(NotificationItemShape),
+  listNotifications: PropTypes.array,
   handleDisplayDrawer: PropTypes.func,
   handleHideDrawer: PropTypes.func,
   markNotificationAsRead: PropTypes.func,
@@ -129,7 +129,7 @@ Notification.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  listNotifications: state.notifications.get('messages')
+  listNotifications: state.notifications.get('notifications')
 });
 
 const mapDispatchToProps = {

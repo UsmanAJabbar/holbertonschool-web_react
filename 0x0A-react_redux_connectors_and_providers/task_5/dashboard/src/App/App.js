@@ -25,16 +25,10 @@ class App extends React.Component {
     super(props);
 
     this.logoutHander           = this.logoutHander.bind(this);
-    this.markNotificationAsRead = this.markNotificationAsRead.bind(this);
 
     this.state = {
       email: 'someemail@gmail.com',
       password: 'somebigpass',
-      listNotifications: [
-        {id: 1, type: 'default', value: 'New course available'},
-        {id: 2, type: 'urgent', value: 'New resume available'},
-        {id: 3, type: 'urgent', html: {__html: getLatestNotifcation()}}
-      ]
     }
   }
 
@@ -53,34 +47,20 @@ class App extends React.Component {
     }
   }
 
-  markNotificationAsRead (id) {
-    this.setState({
-      listNotifications: this.state
-                            .listNotifications
-                            .filter(
-                              notifcationObj => notifcationObj.id !== id
-                            )
-    }, () => console.log(
-      'Successfully removed the notification from the state'
-    ));
-  }
-
   render() {
     const {
       displayDrawer,
       displayNotificationDrawer,
       hideNotificationDrawer,
       login,
-      isLoggedIn
+      isLoggedIn,
     } = this.props;
 
     return (
       <AppContext.Provider value={this.state}>
-        <Notifications listNotifications={this.state.listNotifications}
-                       displayDrawer={displayDrawer}
+        <Notifications displayDrawer={displayDrawer}
                        handleDisplayDrawer={displayNotificationDrawer}
                        handleHideDrawer={hideNotificationDrawer}
-                       markNotificationAsRead={this.markNotificationAsRead}
         />
         <Header />
         {

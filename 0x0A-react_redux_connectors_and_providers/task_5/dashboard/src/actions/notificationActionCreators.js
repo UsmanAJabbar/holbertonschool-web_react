@@ -4,10 +4,10 @@ import {
   FETCH_NOTIFICATIONS_SUCCESS,
   SET_LOADING_STATE
 } from "./notificationActionTypes";
-import * as notifications from '../../dist/notifications.json'
-import { notificationsNormalizer } from "../schema/notifications";
+import { normalizedData } from "../schema/notifications";
 
 const ping = (any) => {
+  const notifications = Object.values(normalizedData.entities.messages);
   const response = {
       json: () => notifications
   }
@@ -23,7 +23,7 @@ const markAsAread = (index) => ({ type: MARK_AS_READ, index });
 const setNotificationFilter = (filter) => ({ type: SET_TYPE_FILTER, filter });
 const fetchNotificationsSuccess = (data) => ({ type: FETCH_NOTIFICATIONS_SUCCESS, data});
 const setLoadingState = (bool) => ({ type: SET_LOADING_STATE, bool});
-const setNotifications = (data) => ({ type: FETCH_NOTIFICATIONS_SUCCESS, data: notificationsNormalizer(data)});
+const setNotifications = (data) => ({ type: FETCH_NOTIFICATIONS_SUCCESS, data});
 const fetchNotifications = () => {
   const promise = ping();
   return (dispatch) => {
