@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import {
+  createStore,
+  applyMiddleware,
+  combineReducers
+} from 'redux';
 
 import App from './App/App';
-import { uiReducer as rootReducer, initialState } from './reducers/uiReducer';
+import { rootReducer } from './reducers/rootReducer';
 
 import './assets/reset.css';
 import './index.css';
 
-const store = createStore(rootReducer, initialState, applyMiddleware(ReduxThunk));
+const store = createStore(
+  combineReducers(rootReducer),
+  initialState,
+  applyMiddleware(ReduxThunk)
+);
 
 ReactDOM.render(
   <React.StrictMode>
