@@ -7,7 +7,6 @@ import {
   LOGIN_FAILURE
 } from './uiActionTypes';
 import * as user from '../../dist/login-success.json';
-import fetch from 'node-fetch';
 
 
 /*======= This is my api simulation =======*/

@@ -6,7 +6,7 @@ import assert from 'assert';
 import { shallow, mount } from 'enzyme';
 import { StyleSheetTestUtils } from 'aphrodite';
 
-import Header from './Header';
+import { newHeader as Header } from './Header';
 
 describe('Test header exists', () => {
   let wrapper = null;
@@ -36,9 +36,6 @@ describe('Test header exists', () => {
   it('Tests whether the h1 tag exists', () => {
     assert.equal(wrapper.find('h1').length, 1);
   });
-  it('Tests whether the default context is available when the context isn\'t passed by <App />', () => {
-    assert.equal(mountedWrapper.context('isLoggedIn'), false);
-  })
   it('Tests whether the login welcome message exists if context does not indicate a successful login', () => {
     assert.equal(wrapper.find('#logoutSection').exists(), false);
   });

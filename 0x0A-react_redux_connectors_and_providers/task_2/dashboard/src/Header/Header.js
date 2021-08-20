@@ -2,25 +2,32 @@ import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
 import logo from '../assets/logo.jpg';
-import AppContext from '../App/AppContext';
+import { connect } from 'react-redux';
+import { logout } from '../actions/uiActionCreators';
 
 class Header extends React.Component {
-  static contextType = AppContext;
   constructor(props) {
     super(props)
   }
   render () {
+    const {
+      user,
+      logout
+    } = this.props;
+
     return (
       <div className={`App-header ${css(styles.header)}`}>
         <img className={css(styles.imgSize)} src={logo} alt=""/>
-        <h1  className={css(styles.headingColor)}>School dashboard</h1>
+        <h1 className={css(styles.headingColor)}>School dashboard</h1>
         {
-          (this.context.isLoggedIn)
-          ? <p id="logoutSection">
-              Welcome <b>{this.context.email}</b>
-              <a onClick={() => this.context.logOut()}>(logout)</a>
-            </p>
-          : null
+          !!user
+            ? (
+                <p id="logoutSection">
+                  Welcome <b>{user.email}</b>
+                  <a onClick={() => logout()}>(logout)</a>
+                </p>
+              )
+            : null
         }
       </div>
     )
@@ -41,4 +48,12 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Header;
+const mapStateToProps = (state) => ({
+  user: state.get('user')
+})
+
+const mapDispatchToProps = {
+  logout
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export { Header as newHeader };

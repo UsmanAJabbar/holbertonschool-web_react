@@ -28,9 +28,6 @@ describe('Test App component', () => {
   it('test that App renders without crashing', () => {
     assert.equal(wOArgsApp.length, 1);
   });
-  it('Tests whether the <Header /> component exists', () => {
-    assert.equal(wOArgsApp.find('Header').exists(), true);
-  });
   it('Tests whether the <Login /> component exists', () => {
     assert.equal(wOArgsApp.find('Login').exists(), true);
   });

@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import AppContext from '../App/AppContext';
 import { getFooterCopy, getFullYear } from '../utils/utils';
 
 import './Footer.css';

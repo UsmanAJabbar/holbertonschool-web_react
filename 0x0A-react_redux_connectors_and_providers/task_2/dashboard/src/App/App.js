@@ -16,7 +16,8 @@ import { getLatestNotifcation } from '../utils/utils';
 import {
   displayNotificationDrawer,
   hideNotificationDrawer,
-  loginRequest
+  loginRequest,
+  logout
 } from '../actions/uiActionCreators';
 
 class App extends React.Component {
@@ -130,7 +131,8 @@ export const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   displayNotificationDrawer,
   hideNotificationDrawer,
-  login: loginRequest
+  login: loginRequest,
+  logout
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
