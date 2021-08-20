@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes, { oneOfType } from 'prop-types';
+import PropTypes from 'prop-types';
 
 /* React components */
 import Notifications from '../Notifications/Notifications';

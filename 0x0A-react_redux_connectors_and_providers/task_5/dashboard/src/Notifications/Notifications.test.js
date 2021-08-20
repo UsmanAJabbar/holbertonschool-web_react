@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { getLatestNotifcation } from '../utils/utils';
 import { StyleSheetTestUtils } from 'aphrodite';
 
-import Notification from './Notifications';
+import { newNotification as Notification} from './Notifications';
 
 describe('Test Notifications component', () => {
 
