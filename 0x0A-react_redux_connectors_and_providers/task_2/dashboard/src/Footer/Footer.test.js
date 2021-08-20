@@ -1,6 +1,6 @@
 const assert = require('assert');
 import { shallow } from 'enzyme';
-import Footer from './Footer';
+import { Footer } from './Footer';
 
 describe('Test header exists', () => {
   let wrapper = null;

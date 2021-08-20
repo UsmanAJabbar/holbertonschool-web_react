@@ -34,9 +34,6 @@ describe('Test App component', () => {
   it('Tests whether the <Login /> component exists', () => {
     assert.equal(wOArgsApp.find('Login').exists(), true);
   });
-  it('Tests whether the <Footer /> component exists', () => {
-    assert.equal(wOArgsApp.find('Footer').exists(), true);
-  });
   it('Tests whether the <Login /> is rendered rather than <CourseList />', () => {
     assert.equal(wOArgsApp.find('Login').exists(), true);
     assert.equal(wOArgsApp.find('CourseList').exists(), false);
