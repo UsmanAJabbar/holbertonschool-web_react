@@ -1,4 +1,7 @@
-import { selectCourse, unSelectCourse } from './courseActionCreators';
+import {
+  selectCourse,
+  unSelectCourse,
+} from './courseActionCreators';
 
 describe('Test that tests the courseAction functions', () => {
   const index = 2;
