@@ -2,21 +2,9 @@ import {
   SELECT_COURSE,
   UNSELECT_COURSE,
   FETCH_COURSE_SUCCESS,
-  SET_COURSES
 } from "./courseActionTypes";
-import * as coursesJSON from '../../dist/courses.json';
 
-const ping = (any) => {
-  const response = {
-      json: () => coursesJSON
-  }
-  return new Promise((resolve, reject) => {
-      if (!coursesJSON) reject("Bad connection");
-      setTimeout(() => {
-          resolve(response);
-      }, 250);
-  });
-}
+import fetch from 'node-fetch';
 
 const selectCourse = (index) => ({ type: SELECT_COURSE, index});
 const unSelectCourse = (index) => ({ type: UNSELECT_COURSE, index});
@@ -40,13 +28,12 @@ const fetchCourseSuccess = () => ({
     }
   ]
 })
-const setCourses = (data) => ({ type: SET_COURSES, data });
+const setCourses = (data) => ({ type: FETCH_COURSE_SUCCESS, data });
 const fetchCourses = () => {
-  const promise = ping();
   return (dispatch) => {
-    promise
+    fetch('./courses.json')
       .then(data => data.json())
-      .then((data) => dispatch(setCourses(data)))
+      .then(data => dispatch(setCourses(data)))
   }
 }
 
@@ -55,5 +42,4 @@ export {
   unSelectCourse,
   fetchCourseSuccess,
   fetchCourses,
-  ping
 };

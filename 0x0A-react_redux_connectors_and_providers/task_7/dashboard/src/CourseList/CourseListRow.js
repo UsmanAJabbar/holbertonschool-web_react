@@ -2,28 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
-function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
-  const [isChecked, setIsChecked] = React.useState(false);
-
-  // Keep track of whether an input:checkbox is checked WITH hooks
-  // If !!checked, then color the full row with css(styles.rowChecked)
-  // Master Plan: Apply conditional CSS to the parent <tr>
-
-  const checkBoxStateHandler = () => {
-    setIsChecked(!isChecked);
-  }
-
+function CourseListRow({ isHeader, textFirstCell, textSecondCell, onChangeRow, isChecked, id }) {
+  const updateCheckBoxState = () => onChangeRow(id, !isChecked);
   return (
     <tr className={ (isHeader) ? `${css(styles.headerRowCSS)}`
                                : `${css(styles.nonHeaderRowCSS)} ${ (!!isChecked) ? css(styles.rowChecked): '' }` }>
       {
         (isHeader == false)
         ? <>
-            <input type="checkbox" onChange={checkBoxStateHandler} checked={isChecked} />
+            <input type="checkbox" onChange={updateCheckBoxState} checked={isChecked} />
             <td className={ css(styles.rowSpacing, styles.rowBorder) }>{textFirstCell}</td>
             <td className={ css(styles.rowSpacing, styles.rowBorder) }>{textSecondCell}</td>
           </>
-        : (!!textSecondCell) // (isHeader == true) => Check if textSecondCell exists
+        : (!!textSecondCell)
           ? <>
               <th>Checkbox</th>
               <th className={ css(styles.rowSpacing, styles.rowBorder) }>{textFirstCell}</th>

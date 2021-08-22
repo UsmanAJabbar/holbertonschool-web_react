@@ -33,7 +33,7 @@ describe('Test the courseReducer function', () => {
     const state = courseReducer(undefined, fetchCourseSuccess())
     expect(
       courseReducer(state, action)
-        .getIn([action.index + 1, 'isSelected'])
+        .getIn([action.index, 'isSelected'])
     ).toEqual(true);
   });
   it('Tests whether the action SELECT_COURSE returns the expected data', () => {
@@ -43,7 +43,7 @@ describe('Test the courseReducer function', () => {
     const state = courseReducer(undefined, fetchCourseSuccess())
     expect(
       courseReducer(state, action)
-        .getIn([action.index + 1, 'isSelected'])
+        .getIn([action.index, 'isSelected'])
     ).toEqual(false);
   });
 })

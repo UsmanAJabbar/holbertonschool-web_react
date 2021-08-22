@@ -8,9 +8,10 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: '../dist/',
+    contentBase: './dist',
     port: 8564,
     hot: true,
+    historyApiFallback: true,
   },
   plugins: [ new HtmlWebpackPlugin({template: './dist/index.html', inject: false}) ],
   module: {

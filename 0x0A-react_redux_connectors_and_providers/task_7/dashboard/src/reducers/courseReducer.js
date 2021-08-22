@@ -17,9 +17,9 @@ const courseReducer = (state = initialState, action = { type: '' }) => {
       );
       return state.merge(normalizedCourses);
     case SELECT_COURSE:
-      return state.setIn([action.index + 1, 'isSelected'], true);
+      return state.setIn([action.index, 'isSelected'], true);
     case UNSELECT_COURSE:
-      return state.setIn([action.index + 1, 'isSelected'], false);
+      return state.setIn([action.index, 'isSelected'], false);
     default:
       return state;
   };
