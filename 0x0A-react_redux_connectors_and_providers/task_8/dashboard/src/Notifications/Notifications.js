@@ -3,7 +3,7 @@ import { StyleSheet, css } from 'aphrodite';
 import { connect } from 'react-redux';
 
 import { NotificationItem } from './NotificationItem';
-import { fetchNotifications, markAsAread } from '../actions/notificationActionCreators';
+import { fetchNotifications, markAsAread, setNotificationFilter } from '../actions/notificationActionCreators';
 import { getUnreadNotificationsByType } from '../selectors/notificationSelector';
 
 
@@ -48,6 +48,8 @@ class Notification extends React.PureComponent {
                 <img src={ closeButton } alt={ "close button" } style={{ height: '20px' }} />
               </button>
               <p>Here is the list of notifications</p>
+              <button onClick={() => this.props.setNotificationFilter('URGENT')}>!!</button>
+              <button onClick={() => this.props.setNotificationFilter('DEFAULT')}>💠</button>
               <ul>
                 {
                   (!listNotifications.length)
@@ -133,7 +135,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   fetchNotifications,
-  markNotificationAsRead: markAsAread
+  markNotificationAsRead: markAsAread,
+  setNotificationFilter
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notification)
